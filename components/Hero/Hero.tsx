@@ -25,7 +25,7 @@ const HeroSection: React.FC = () => {
               text-xl md:text-2xl text-white/80 tracking-wide 
               ${jetbrainsMono.className}`
             }>
-              Hi, I'm
+              Hi, I am
             </h2>
             <div className="h-[2px] w-16 bg-white/50"></div>
           </div>
@@ -44,7 +44,7 @@ const HeroSection: React.FC = () => {
 
           {/* Brief Introduction */}
           <p className="text-md md:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
-            I'm a passionate developer who crafts elegant digital experiences. 
+            I am a passionate developer who crafts elegant digital experiences. 
             With a blend of technical expertise and creative problem-solving, 
             I transform complex challenges into intuitive, impactful solutions.
           </p>

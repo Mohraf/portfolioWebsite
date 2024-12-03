@@ -43,7 +43,7 @@ const AboutMe: React.FC = () => {
 
           <div className="space-y-4 text-white/80 leading-relaxed">
             <p>
-              I'm a passionate Computer Science graduate from Jomo Kenyatta University of Agriculture and Technology, 
+              I am a passionate Computer Science graduate from Jomo Kenyatta University of Agriculture and Technology, 
               where I developed a strong foundation in software engineering and innovative technology solutions.
             </p>
 

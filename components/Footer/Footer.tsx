@@ -212,6 +212,7 @@ const Footer: React.FC<FooterProps> = ({ socialLinks }) => {
                     type: "error",
                     message: "Failed to send message. Please try again.",
                   });
+                  console.log(error)
                 } finally {
                   setIsSubmitting(false);
                 }

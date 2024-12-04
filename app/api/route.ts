@@ -4,7 +4,7 @@ import nodemailer from 'nodemailer';
 
 export async function POST(req: Request) {
     try {
-        const { name, email, phone, message } = await req.json();
+        const { name, email, message } = await req.json();
 
         // Validate environment variables
         if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {

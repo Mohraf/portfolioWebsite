@@ -4,28 +4,36 @@ import { Briefcase, MapPin } from 'lucide-react';
 const ExperiencesComponent: React.FC = () => {
   const experiences = [
     {
-      title: 'Software Engineer',
-      company: 'TechInnovate Solutions',
+      title: 'Lead Software Engineer',
+      company: 'Greenlife Crop Protection Africa Ltd.',
       location: 'Nairobi, Kenya',
-      period: 'Jan 2023 - Present',
-      description: 'Led full-stack development of enterprise web applications, implementing scalable microservices architecture and improving system performance by 40%.',
-      technologies: ['React', 'Node.js', 'AWS', 'Docker']
+      period: 'Jun 2023 - Present',
+      description: 'Led full-stack development of enterprise web applications, Mobile Application, USSD, implementing scalable microservices architecture and improving system performance by 40%.',
+      technologies: ['React', 'USSD', 'AWS', 'Docker', 'Laravel', 'Redis', 'React Native', 'Typescript', 'PHP', 'WordPress' ]
     },
     {
-      title: 'Junior Software Developer',
-      company: 'DevSpark Africa',
+      title: 'Frontend Software Developer',
+      company: 'Weza Ventures',
       location: 'Nairobi, Kenya',
-      period: 'Jun 2021 - Dec 2022',
-      description: 'Developed and maintained responsive web applications, collaborated with cross-functional teams to deliver innovative software solutions.',
-      technologies: ['Python', 'Django', 'React', 'PostgreSQL']
+      period: 'Nov 2020 - Jun 2023',
+      description: 'Developed and maintained responsive web frontend applications. The Weza Platform and Weza CRM',
+      technologies: ['NextJs', 'React', 'Docker', 'Storybook']
     },
     {
       title: 'Software Engineering Intern',
-      company: 'Jomo Kenyatta University Techpark',
+      company: 'Attain Enterprise Solutions',
       location: 'Nairobi, Kenya',
-      period: 'Jan 2021 - May 2021',
+      period: 'Oct 2019 - Mar 2020',
+      description: 'Developed and maintained responsive web applications, collaborated with cross-functional teams to deliver innovative software solutions.',
+      technologies: ['NextJs', 'React', 'Docker', 'PostgreSQL']
+    },
+    {
+      title: 'Computer Science Student',
+      company: 'Jomo Kenyatta University of Agriculture and Technology',
+      location: 'Juja, Kenya',
+      period: 'Sep 2014 - Aug 2019',
       description: 'Contributed to university research projects, developed prototype applications demonstrating innovative technological solutions.',
-      technologies: ['Java', 'Spring Boot', 'Machine Learning']
+      technologies: ['Java', 'PHP', 'JavaScript', 'C', 'C++', 'Python', 'SDLC', 'Project Management']
     }
   ];
 

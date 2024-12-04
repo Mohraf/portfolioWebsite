@@ -11,7 +11,7 @@ export default function Home() {
     linkedin: 'https://linkedin.com/in/amos-ng-uono-179aa8169/',
     github: 'https://github.com/mohraf',
     twitter: 'https://twitter.com/f1sher_man',
-    email: 'your.email@example.com'
+    email: 'amosokello04@gmail.com'
   };
 
   return (

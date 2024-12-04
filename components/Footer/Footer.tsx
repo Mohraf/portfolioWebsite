@@ -52,19 +52,17 @@ const Footer: React.FC<FooterProps> = ({ socialLinks }) => {
     const [submitStatus, setSubmitStatus] = useState<{
       type: "success" | "error";
       message: string;
-    } | null>(null);
+    } | string | null>("");
     // const [invalidFields, setInvalidFields] = useState<string[]>([]);
 
     const validateForm = (data: {
       name: FormDataEntryValue | null;
       email: FormDataEntryValue | null;
-      phone: FormDataEntryValue | null;
       message: FormDataEntryValue | null;
     }) => {
       const invalid = [];
       if (!data.name) invalid.push("name");
       if (!data.email) invalid.push("email");
-      if (!data.phone) invalid.push("phone");
       if (!data.message) invalid.push("message");
 
       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -183,15 +181,15 @@ const Footer: React.FC<FooterProps> = ({ socialLinks }) => {
                   message: formData.get("message"),
                 };
 
-                // const validation = validateForm(data);
-                // if (!validation.valid) {
-                //   setSubmitStatus({
-                //     type: "error",
-                //     message: validation.message,
-                //   });
-                //   setIsSubmitting(false);
-                //   return;
-                // }
+                const validation = validateForm(data);
+                if (!validation.valid) {
+                  setSubmitStatus({
+                    type: "error",
+                    message: validation.message,
+                  });
+                  setIsSubmitting(false);
+                  return;
+                }
 
                 try {
                   const response = await fetch("/api/", {
@@ -219,7 +217,7 @@ const Footer: React.FC<FooterProps> = ({ socialLinks }) => {
                 }
               }}
             >
-              {isSubmitting ? "Sending..." : "Send Message"}
+              {isSubmitting ? "Sending..." : "Send Message"} {submitStatus? "" : submitStatus}
             </button>
           </form>
         </div>

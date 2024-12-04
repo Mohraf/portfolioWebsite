@@ -38,9 +38,9 @@ const HeroSection: React.FC = () => {
           </h1>
 
           {/* Profession with Typing Effect */}
-          <h3 className="text-2xl md:text-4xl text-white/80 font-medium">
+          <h2 className="text-2xl md:text-4xl text-white/80 font-medium">
             Software Engineer & Creative Developer
-          </h3>
+          </h2>
 
           {/* Brief Introduction */}
           <p className="text-md md:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">

@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react';
-import { Mail, MailIcon, InstagramIcon, LinkedinIcon, GithubIcon, TwitterIcon } from 'lucide-react';
+import { Mail, InstagramIcon, LinkedinIcon, GithubIcon, TwitterIcon } from 'lucide-react';
 
 interface FooterProps {
   socialLinks: {

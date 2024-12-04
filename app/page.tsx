@@ -6,6 +6,14 @@ import Navbar from "@/components/Navbar/Navbar";
 import WorkProjects from "@/components/Work/Work";
 
 export default function Home() {
+  const socialLinks = {
+    instagram: 'https://instagram.com/f1sher.man',
+    linkedin: 'https://linkedin.com/in/amos-ng-uono-179aa8169/',
+    github: 'https://github.com/mohraf',
+    twitter: 'https://twitter.com/f1sher_man',
+    email: 'your.email@example.com'
+  };
+
   return (
     <>
       <Navbar />
@@ -13,7 +21,7 @@ export default function Home() {
       <AboutMe />
       <ExperiencesComponent />
       <WorkProjects />
-      <Footer />
+      <Footer socialLinks={socialLinks} />
     </>
   );
 }

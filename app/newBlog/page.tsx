@@ -24,7 +24,6 @@ const NewBlogPost = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleImageUpload = (imageUrl: string) => {
-    console.log("Image uploaded:", imageUrl);
     setPost((prev) => ({ ...prev, image: imageUrl }));
   };
 
@@ -33,16 +32,39 @@ const NewBlogPost = () => {
     setIsLoading(true);
     
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log("Saving post:", post);
-      toast.success("Blog post saved successfully!");
+      const response = await fetch('/api/blog', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(post)
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to save blog post');
+      }
+
+      toast.success(data.message);
+      // Reset form or redirect
+      setPost({
+        title: "",
+        content: "",
+        image: null,
+        status: "draft"
+      });
     } catch (error) {
       console.error("Error saving post:", error);
-      toast.error("Failed to save blog post");
+      toast.error(error instanceof Error ? error.message : "Failed to save blog post");
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleSaveAsDraft = () => {
+    setPost((prev) => ({ ...prev, status: "draft" }));
+    handleSubmit(new Event('submit') as any);
   };
 
   return (
@@ -68,6 +90,7 @@ const NewBlogPost = () => {
                 value={post.title}
                 onChange={(e) => setPost((prev) => ({ ...prev, title: e.target.value }))}
                 className="w-full transition-all duration-200 focus:ring-2 focus:ring-gray-200"
+                required
               />
             </div>
 
@@ -97,6 +120,7 @@ const NewBlogPost = () => {
                 value={post.content}
                 onChange={(e) => setPost((prev) => ({ ...prev, content: e.target.value }))}
                 className="min-h-[300px] transition-all duration-200 focus:ring-2 focus:ring-gray-200"
+                required
               />
             </div>
 
@@ -104,7 +128,8 @@ const NewBlogPost = () => {
               <Button
                 type="button"
                 variant="outline"
-                onClick={() => setPost((prev) => ({ ...prev, status: "draft" }))}
+                onClick={handleSaveAsDraft}
+                disabled={isLoading}
                 className="transition-all duration-200 hover:bg-gray-50"
               >
                 Save as Draft
@@ -112,6 +137,7 @@ const NewBlogPost = () => {
               <Button
                 type="submit"
                 disabled={isLoading}
+                onClick={() => setPost((prev) => ({ ...prev, status: "published" }))}
                 className="bg-gray-900 text-white hover:bg-gray-800 transition-all duration-200"
               >
                 {isLoading ? "Publishing..." : "Publish Post"}

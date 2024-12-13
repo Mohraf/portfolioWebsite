@@ -39,7 +39,7 @@ Next.js 15 introduces significant performance optimizations, including:
 
 export async function GET(
   request: NextRequest, 
-  { params }: { params: { slug: string } }
+  params: { params: Promise<{ slug: string }> }
 ) {
   try {
     // TODO: Replace with actual database query
@@ -48,7 +48,9 @@ export async function GET(
     //   where: { slug: params.slug }
     // });
 
-    const post = mockPosts.find(p => p.id === params.slug);
+    const slug = (await (params).params).slug
+
+    const post = mockPosts.find(p => p.id === slug);
 
     if (!post) {
       return NextResponse.json(

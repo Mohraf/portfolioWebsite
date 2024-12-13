@@ -1,11 +1,12 @@
 "use client"
-import { useState } from "react";
+import React, { useState }  from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { Card } from "@/components/ui/card";
 import { ImageUpload } from "@/components/blog/ImageUpload";
+import Image from "next/image";
 
 interface BlogPost {
   title: string;
@@ -64,7 +65,7 @@ const NewBlogPost = () => {
 
   const handleSaveAsDraft = () => {
     setPost((prev) => ({ ...prev, status: "draft" }));
-    handleSubmit(new Event('submit') as any);
+    handleSubmit(new Event('submit') as unknown as React.SyntheticEvent);
   };
 
   return (
@@ -101,9 +102,11 @@ const NewBlogPost = () => {
               <ImageUpload onUpload={handleImageUpload} />
               {post.image && (
                 <div className="relative mt-2 rounded-lg overflow-hidden aspect-video">
-                  <img
+                  <Image
                     src={post.image}
                     alt="Preview"
+                    width={500}
+                    height={500}
                     className="w-full h-full object-cover"
                   />
                 </div>

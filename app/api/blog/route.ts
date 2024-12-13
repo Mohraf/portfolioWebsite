@@ -1,4 +1,7 @@
-import { NextRequest, NextResponse } from 'next/server';
+import {
+    NextRequest, 
+    NextResponse
+} from 'next/server';
 import { z } from 'zod';
 
 // Zod schema for blog post validation
@@ -75,7 +78,7 @@ const mockPosts = [
     // Add more mock posts as needed
 ];
 
-export async function GET(request: NextRequest) {
+export async function GET() {
     try {
         // TODO: Replace with actual database query
         // Example with Prisma:

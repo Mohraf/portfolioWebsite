@@ -1,4 +1,3 @@
-// src/app/api/posts/[slug]/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 
 // Mock data - replace with actual database fetching
@@ -38,18 +37,10 @@ Next.js 15 introduces significant performance optimizations, including:
   // Add more mock posts
 ];
 
-type RouteParams = {
-  params: {
-    slug: string;
-  };
-};
-
 export async function GET(
   request: NextRequest, 
-  context: RouteParams
+  { params }: { params: { slug: string } }
 ) {
-  const { slug } = context.params;
-
   try {
     // TODO: Replace with actual database query
     // Example with Prisma:
@@ -57,7 +48,7 @@ export async function GET(
     //   where: { slug: params.slug }
     // });
 
-    const post = mockPosts.find(p => p.id === slug);
+    const post = mockPosts.find(p => p.id === params.slug);
 
     if (!post) {
       return NextResponse.json(

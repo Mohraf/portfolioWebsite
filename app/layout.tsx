@@ -9,7 +9,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 export const metadata: Metadata = {
-  title: "F1SHERMAN TECHNOLOGIES",
+  title: "Amos Okello",
   description: "Optimizing business process through software",
 };
 
